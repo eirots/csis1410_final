@@ -42,4 +42,9 @@ public class Tires {
 		return roadSpeed;
 	}
 
+
+	public TireType getTiresType() {
+		return tires;
+	}
+
 }
