@@ -1,4 +1,4 @@
-package finalProject_1410;
+package notGuiStuff;
 
 public enum TireType {
 	LOWPROFILE, ALL_TERRAIN, OFFROAD;

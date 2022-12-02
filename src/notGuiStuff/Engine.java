@@ -1,4 +1,4 @@
-package finalProject_1410;
+package notGuiStuff;
 
 public class Engine {
 	private double acceleration;

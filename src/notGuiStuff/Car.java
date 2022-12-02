@@ -1,4 +1,4 @@
-package finalProject_1410;
+package notGuiStuff;
 
 /**
  * The main class for a car to be created and for other classes to have functionality
