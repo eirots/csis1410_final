@@ -30,11 +30,11 @@ public class TrackSelector extends JPanel {
 		add(trackSelectLbl);
 		
 		LengthSelection lengthSelectPanel = new LengthSelection();
-		lengthSelectPanel.setBounds(68, 65, 245, 255);
+		lengthSelectPanel.setBounds(190, 92, 125, 242);
 		add(lengthSelectPanel);
 		
 		TrackTypeSelector trackTypePanel = new TrackTypeSelector();
-		trackTypePanel.setBounds(458, 65, 251, 255);
+		trackTypePanel.setBounds(438, 92, 101, 242);
 		add(trackTypePanel);
 		
 		JButton trackSelectorBtn = new JButton("continue");

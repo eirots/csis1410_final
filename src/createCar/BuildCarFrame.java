@@ -35,11 +35,11 @@ public class BuildCarFrame extends JPanel {
 		add(carScreenLabel);
 		
 		JPanel enginePanel = new EnginePanel();
-		enginePanel.setBounds(266, 65, 270, 284);
+		enginePanel.setBounds(214, 68, 125, 274);
 		add(enginePanel);
 		
 		JPanel tirePanel = new TirePanel();
-		tirePanel.setBounds(1, 65, 264, 284);
+		tirePanel.setBounds(54, 68, 114, 222);
 		add(tirePanel);
 		
 		JButton saveButton = new JButton("save");
@@ -47,21 +47,21 @@ public class BuildCarFrame extends JPanel {
 		add(saveButton);
 		
 		JPanel bodyPanel = new BodyPanel();
-		bodyPanel.setBounds(536, 95, 257, 192);
+		bodyPanel.setBounds(387, 68, 125, 169);
 		add(bodyPanel);
 		
 		JButton loadButton = new JButton("load");
-		loadButton.setBounds(533, 286, 260, 74);
+		loadButton.setBounds(536, 291, 260, 74);
 		add(loadButton);
 		
 		JButton createCarButton = new JButton("continue");
+		createCarButton.setBounds(1, 371, 448, 69);
 		createCarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame main = new MainFrame();
 				main.switchPanel(mainPanel, "trackSelector");
 			}
 		});
-		createCarButton.setBounds(1, 371, 448, 69);
 		add(createCarButton);
 	}
 

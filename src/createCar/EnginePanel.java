@@ -22,55 +22,34 @@ public class EnginePanel extends JPanel {
 	public EnginePanel() {
 		
 		JRadioButton vEngineRadio = new JRadioButton("V engine");
+		vEngineRadio.setBounds(17, 81, 86, 23);
 		JRadioButton inlineRadio = new JRadioButton("inline");
+		inlineRadio.setBounds(26, 139, 67, 23);
 		JRadioButton boxerRadio = new JRadioButton("opposed");
+		boxerRadio.setBounds(17, 197, 86, 23);
 		
 		ButtonGroup group = new ButtonGroup();
 		
 		group.add(vEngineRadio);
 		group.add(inlineRadio);
 		group.add(boxerRadio);
-		
-		
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gridBagLayout);
+		setLayout(null);
 		
 		JLabel engineLabel = new JLabel("ENGINE");
+		engineLabel.setBounds(6, 6, 108, 40);
 		engineLabel.setFont(new Font("Monaco", Font.BOLD, 30));
 		engineLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		GridBagConstraints gbc_engineLabel = new GridBagConstraints();
-		gbc_engineLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_engineLabel.gridx = 3;
-		gbc_engineLabel.gridy = 1;
-		add(engineLabel, gbc_engineLabel);
+		add(engineLabel);
 		
 		
 		
 		vEngineRadio.setHorizontalAlignment(SwingConstants.LEFT);
-		GridBagConstraints gbc_vEngineRadio = new GridBagConstraints();
-		gbc_vEngineRadio.insets = new Insets(0, 0, 5, 5);
-		gbc_vEngineRadio.gridx = 3;
-		gbc_vEngineRadio.gridy = 3;
-		add(vEngineRadio, gbc_vEngineRadio);
+		add(vEngineRadio);
 		
 		
 		inlineRadio.setHorizontalAlignment(SwingConstants.LEFT);
-		GridBagConstraints gbc_inlineRadio = new GridBagConstraints();
-		gbc_inlineRadio.insets = new Insets(0, 0, 5, 5);
-		gbc_inlineRadio.gridx = 3;
-		gbc_inlineRadio.gridy = 5;
-		add(inlineRadio, gbc_inlineRadio);
-		
-		
-		GridBagConstraints gbc_boxerRadio = new GridBagConstraints();
-		gbc_boxerRadio.insets = new Insets(0, 0, 0, 5);
-		gbc_boxerRadio.gridx = 3;
-		gbc_boxerRadio.gridy = 7;
-		add(boxerRadio, gbc_boxerRadio);
+		add(inlineRadio);
+		add(boxerRadio);
 
 	}
 
