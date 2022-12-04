@@ -55,6 +55,7 @@ public class MainFrame extends JFrame {
 		
 		
 		
+		
 		setContentPane(mainPanel);
 	
 
