@@ -1,21 +1,29 @@
-package gui;
+package introScreen;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import createCar.BuildCarFrame;
+import gui.MainFrame;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class introPanel extends JPanel {
+public class IntroPanel extends JPanel {
+	private JPanel mainPanel;
 
 	/**
 	 * Create the panel.
 	 */
-	public introPanel() {
+	public IntroPanel(JPanel mainPanel) {
+		this.mainPanel = mainPanel;
 		makeIntroPanel();
 		
 	}
@@ -48,6 +56,15 @@ public class introPanel extends JPanel {
 		add(titleLabel2, gbc_titleLabel2);
 		
 		JButton startButton = new JButton("start");
+		startButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			MainFrame main = new MainFrame();
+			main.switchPanel(mainPanel, "buildCarScreen");
+			//repaint();
+			//revalidate();
+			}
+		});
 		startButton.setFont(new Font("Monaco", Font.PLAIN, 25));
 		GridBagConstraints gbc_startButton = new GridBagConstraints();
 		gbc_startButton.anchor = GridBagConstraints.NORTH;

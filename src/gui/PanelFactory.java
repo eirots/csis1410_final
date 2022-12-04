@@ -1,6 +1,6 @@
 package gui;
 
-public class panelFactory {
+public class PanelFactory {
 
 	
 	public void start() {
