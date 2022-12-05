@@ -1,4 +1,4 @@
-package raceScreen;
+package raceGui;
 
 import javax.swing.JPanel;
 

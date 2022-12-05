@@ -1,4 +1,4 @@
-package createCar;
+package createCarGui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -32,6 +32,11 @@ public class BuildCarFrame extends JPanel {
 		carScreenLabel.setBounds(180, 0, 463, 74);
 		carScreenLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		carScreenLabel.setFont(new Font("Monaco", Font.PLAIN, 40));
+		
+
+		JButton saveButton = new JButton("save");
+		JButton loadButton = new JButton("load");
+		
 		add(carScreenLabel);
 		
 		JPanel enginePanel = new EnginePanel();
@@ -42,7 +47,6 @@ public class BuildCarFrame extends JPanel {
 		tirePanel.setBounds(54, 68, 114, 222);
 		add(tirePanel);
 		
-		JButton saveButton = new JButton("save");
 		saveButton.setBounds(536, 356, 257, 90);
 		add(saveButton);
 		
@@ -50,7 +54,7 @@ public class BuildCarFrame extends JPanel {
 		bodyPanel.setBounds(387, 68, 125, 169);
 		add(bodyPanel);
 		
-		JButton loadButton = new JButton("load");
+		
 		loadButton.setBounds(536, 291, 260, 74);
 		add(loadButton);
 		
@@ -59,6 +63,8 @@ public class BuildCarFrame extends JPanel {
 		createCarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame main = new MainFrame();
+				
+				
 				main.switchPanel(mainPanel, "trackSelector");
 			}
 		});

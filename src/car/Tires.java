@@ -1,4 +1,4 @@
-package notGuiStuff;
+package car;
 
 public class Tires {
 

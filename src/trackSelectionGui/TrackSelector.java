@@ -1,4 +1,4 @@
-package trackSelector;
+package trackSelectionGui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;

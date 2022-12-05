@@ -1,11 +1,11 @@
-package introScreen;
+package introScreenGui;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import createCar.BuildCarFrame;
+import createCarGui.BuildCarFrame;
 import gui.MainFrame;
 
 import java.awt.Font;

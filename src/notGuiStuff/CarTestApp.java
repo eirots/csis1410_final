@@ -1,5 +1,13 @@
 package notGuiStuff;
 
+import car.Body;
+import car.Car;
+import car.Engine;
+import car.EngineBlock;
+import car.Frame;
+import car.TireType;
+import car.Tires;
+
 public class CarTestApp {
 
 	public static void main(String[] args) {

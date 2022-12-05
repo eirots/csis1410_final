@@ -1,4 +1,4 @@
-package createCar;
+package createCarGui;
 
 import javax.swing.JPanel;
 import javax.swing.ButtonGroup;

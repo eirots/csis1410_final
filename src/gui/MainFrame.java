@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import createCar.BuildCarFrame;
-import introScreen.IntroPanel;
-import trackSelector.TrackSelector;
+import createCarGui.BuildCarFrame;
+import introScreenGui.IntroPanel;
+import trackSelectionGui.TrackSelector;
 
 import java.awt.CardLayout;
 import java.awt.Container;

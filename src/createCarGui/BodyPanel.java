@@ -1,4 +1,4 @@
-package createCar;
+package createCarGui;
 
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 
 public class BodyPanel extends JPanel {
 
+	private ButtonGroup group;
+
 	/**
 	 * Create the panel.
 	 */
@@ -23,7 +25,7 @@ public class BodyPanel extends JPanel {
 		JRadioButton sportRadio = new JRadioButton("sport");
 		sportRadio.setBounds(12, 81, 65, 23);
 
-		ButtonGroup group = new ButtonGroup();
+		group = new ButtonGroup();
 		group.add(offroadBodyRadio);
 		group.add(sportRadio);
 		setLayout(null);
