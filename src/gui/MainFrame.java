@@ -3,7 +3,6 @@ package gui;
 import java.awt.EventQueue;
 import java.util.Random;
 
-import javax.sound.midi.Track;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +16,7 @@ import car.TireType;
 import car.Tires;
 import createCarGui.BuildCarFrame;
 import introScreenGui.IntroPanel;
+import track.Track;
 import trackSelectionGui.TrackSelector;
 
 import java.awt.CardLayout;
@@ -63,6 +63,10 @@ public class MainFrame extends JFrame {
 
 		setContentPane(mainPanel);
 
+	}
+	public static void setTrack(Track recTrack) {
+		track = recTrack;
+		System.out.println(track.getLength() + " " + track.getTrackType());
 	}
 
 	public static void setPlayerCar(Car car) {

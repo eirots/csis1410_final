@@ -13,18 +13,23 @@ import javax.swing.SwingConstants;
 
 public class TrackTypeSelector extends JPanel {
 
+	private ButtonGroup group;
+
 	/**
 	 * Create the panel.
 	 */
 	public TrackTypeSelector() {
 		JRadioButton onRoadRadio = new JRadioButton("on-road");
 		onRoadRadio.setBounds(6, 81, 84, 23);
+		onRoadRadio.setActionCommand("onroad");
 		JRadioButton offroadRadio = new JRadioButton("offroad");
 		offroadRadio.setBounds(9, 139, 78, 23);
+		offroadRadio.setActionCommand("offroad");
 		JRadioButton randomRadio = new JRadioButton("random");
 		randomRadio.setBounds(8, 197, 80, 23);
+		randomRadio.setActionCommand("random");
 		
-		ButtonGroup group = new ButtonGroup();
+		group = new ButtonGroup();
 		group.add(onRoadRadio);
 		group.add(offroadRadio);
 		group.add(randomRadio);
@@ -44,6 +49,18 @@ public class TrackTypeSelector extends JPanel {
 		offroadRadio.setHorizontalAlignment(SwingConstants.LEFT);
 		add(offroadRadio);
 		add(randomRadio);
+		
+		
 	}
+	
+	public String getSelectedRadio() {
+		System.out.println("track type: " + group.getSelection().getActionCommand());
+		return group.getSelection().getActionCommand();
+	}
+	
 
+	
+	
+	
+	
 }

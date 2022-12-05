@@ -29,7 +29,7 @@ public class Track {
 	 * @throws Exception Will throw exception if an invalid track type is passed
 	 */
 	public Track( String trackType) throws Exception {
-		this.length = Math.floor(Math.random() * (100 - 1 +1)) + 1; // Generates a random length for the track change the first value to change the max length.
+		this.length = Math.floor(Math.random() * (1000 - 10 +1)) + 1; // Generates a random length for the track change the first value to change the max length.
 		this.trackType = trackType;
 		if(!(trackType == "OnRoad" || trackType == "OffRoad")) {
 			throw new Exception("Invalid Track Type");

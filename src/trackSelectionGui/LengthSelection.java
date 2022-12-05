@@ -13,18 +13,22 @@ import javax.swing.SwingConstants;
 
 public class LengthSelection extends JPanel {
 
+	private ButtonGroup group;
 	/**
 	 * Create the panel.
 	 */
 	public LengthSelection() {
 		JRadioButton shortRadio = new JRadioButton("short");
-		shortRadio.setBounds(27, 81, 65, 23);
-		JRadioButton mediumRadio = new JRadioButton("medium");
-		mediumRadio.setBounds(18, 139, 83, 23);
-		JRadioButton longRadio = new JRadioButton("long");
-		longRadio.setBounds(30, 197, 60, 23);
+		shortRadio.setBounds(27, 82, 65, 23);
+		shortRadio.setActionCommand("short");
+		JRadioButton mediumRadio = new JRadioButton("long");
+		mediumRadio.setBounds(27, 141, 83, 23);
+		mediumRadio.setActionCommand("long");
+		JRadioButton longRadio = new JRadioButton("random");
+		longRadio.setBounds(27, 198, 99, 23);
+		longRadio.setActionCommand("random");
 		
-		ButtonGroup group = new ButtonGroup();
+		group = new ButtonGroup();
 		group.add(shortRadio);
 		group.add(mediumRadio);
 		group.add(longRadio);
@@ -45,6 +49,10 @@ public class LengthSelection extends JPanel {
 		add(mediumRadio);
 		add(longRadio);
 		
+	}
+	public String getSelectedRadio() {
+		System.out.println("length: "+ group.getSelection().getActionCommand());
+		return group.getSelection().getActionCommand();
 	}
 
 }
