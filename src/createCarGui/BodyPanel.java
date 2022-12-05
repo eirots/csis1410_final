@@ -22,12 +22,17 @@ public class BodyPanel extends JPanel {
 
 		JRadioButton offroadBodyRadio = new JRadioButton("offroad");
 		offroadBodyRadio.setBounds(6, 139, 78, 23);
+		
 		JRadioButton sportRadio = new JRadioButton("sport");
 		sportRadio.setBounds(12, 81, 65, 23);
 
 		group = new ButtonGroup();
+		
 		group.add(offroadBodyRadio);
+		
 		group.add(sportRadio);
+		
+		
 		setLayout(null);
 
 		JLabel bodyLabel = new JLabel("BODY");
@@ -44,5 +49,11 @@ public class BodyPanel extends JPanel {
 		add(offroadBodyRadio);
 
 	}
+	
+	public String getSelectedButton() {
+		System.out.println(group.getSelection());
+		return "";
+	}
+
 
 }
