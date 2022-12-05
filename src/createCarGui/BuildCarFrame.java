@@ -5,9 +5,13 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+import car.Body;
+import car.Car;
+import car.Engine;
 import car.EngineBlock;
 import car.Frame;
 import car.TireType;
+import car.Tires;
 import gui.MainFrame;
 
 import javax.swing.JButton;
@@ -41,8 +45,6 @@ public class BuildCarFrame extends JPanel {
 		JButton loadButton = new JButton("load");
 		JButton createCarButton = new JButton("continue");
 
-		
-
 		enginePanel = new EnginePanel();
 		bodyPanel = new BodyPanel();
 		tirePanel = new TirePanel();
@@ -62,17 +64,15 @@ public class BuildCarFrame extends JPanel {
 		add(saveButton);
 		add(loadButton);
 
-		
-		
 		createCarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame main = new MainFrame();
+
+				// body, engine, tires
+				Car playerCar = new Car(new Body(switchFrame(bodyPanel.getSelectedRadio())),
+						new Engine(switchEngine(enginePanel.getSelectedRadio())),
+						new Tires(switchTire(tirePanel.getSelectedRadio())));
 				
-				Car playerCar = new Car(
-						);
-				bodyPanel.getSelectedRadio();
-				enginePanel.getSelectedRadio();
-				tirePanel.getSelectedRadio();
 				main.switchPanel(mainPanel, "trackSelector");
 			}
 		});
@@ -80,22 +80,41 @@ public class BuildCarFrame extends JPanel {
 	}
 
 	private Frame switchFrame(String frame) {
-		switch(frame) {
+		switch (frame) {
 		case "sport":
 			return Frame.SPORTSCAR;
 		case "offroad":
 			return Frame.OFFROAD;
-		
+		default:
+			throw new NullPointerException("NO FRAME WAS SELECTED");
 		}
-		
+
 	}
 
 	private EngineBlock switchEngine(String engine) {
-
+		switch (engine) {
+		case "vengine":
+			return EngineBlock.VEngine;
+		case "inline":
+			return EngineBlock.InlineEngine;
+		case "opposed":
+			return EngineBlock.OpposedEngine;
+		default:
+			throw new NullPointerException("NO ENGINE WAS SELECTED");
+		}
 	}
 
 	private TireType switchTire(String tire) {
-
+		switch (tire) {
+		case "low profile":
+			return TireType.LOWPROFILE;
+		case "allterrain":
+			return TireType.ALL_TERRAIN;
+		case "offroad":
+			return TireType.OFFROAD;
+		default:
+			throw new NullPointerException("NO TIRE TYPE WAS SELECTED");
+		}
 	}
 
 }
