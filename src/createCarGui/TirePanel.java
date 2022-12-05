@@ -54,7 +54,7 @@ public class TirePanel extends JPanel {
 
 	}
 		public String getSelectedRadio() {
-		System.out.println(group.getSelection().getActionCommand());
+		System.out.println("tire " +group.getSelection().getActionCommand());
 		return group.getSelection().getActionCommand();
 	}
 

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import car.Car;
 import createCarGui.BuildCarFrame;
 import introScreenGui.IntroPanel;
 import trackSelectionGui.TrackSelector;
@@ -17,6 +18,8 @@ public class MainFrame extends JFrame {
 
 	public JPanel mainPanel;
 	public JPanel cards;
+	public static Car playerCar;
+	public static 
 
 
 	
@@ -61,6 +64,12 @@ public class MainFrame extends JFrame {
 
 		
 	}		
+	public static void setPlayerCar(Car car) {
+		playerCar = car;
+	}
+	public static void printPlayerCar() {
+		System.out.println(playerCar.toString());
+	}
 	
 	public void switchPanel(Container container, String panelName) {
 		CardLayout card = (CardLayout)(container.getLayout());

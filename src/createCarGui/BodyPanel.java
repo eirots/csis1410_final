@@ -53,7 +53,7 @@ public class BodyPanel extends JPanel {
 	}
 	
 	public String getSelectedRadio() {
-		System.out.println(group.getSelection().getActionCommand());
+		System.out.println("body " +group.getSelection().getActionCommand());
 		return group.getSelection().getActionCommand();
 	}
 

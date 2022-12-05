@@ -60,7 +60,7 @@ public class EnginePanel extends JPanel {
 
 	}
 	public String getSelectedRadio() {
-		
+		System.out.println("engine " + group.getSelection().getActionCommand());
 		return group.getSelection().getActionCommand();
 	}
 
