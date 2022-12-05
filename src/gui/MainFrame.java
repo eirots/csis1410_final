@@ -5,7 +5,6 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import car.Body;
 import car.Car;
@@ -16,6 +15,7 @@ import car.TireType;
 import car.Tires;
 import createCarGui.BuildCarFrame;
 import introScreenGui.IntroPanel;
+import raceGui.RaceDisplay;
 import track.Track;
 import trackSelectionGui.TrackSelector;
 
@@ -55,11 +55,13 @@ public class MainFrame extends JFrame {
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new CardLayout());
 		// TURN OFF RESIZING
+		setResizable(false);
 
 		// add new panels here
 		mainPanel.add(new IntroPanel(mainPanel), "intro");
 		mainPanel.add(new BuildCarFrame(mainPanel), "buildCarScreen");
 		mainPanel.add(new TrackSelector(mainPanel), "trackSelector");
+		mainPanel.add(new RaceDisplay(mainPanel), "raceDisplay");
 
 		setContentPane(mainPanel);
 

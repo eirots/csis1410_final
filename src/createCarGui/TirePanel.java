@@ -29,6 +29,7 @@ public class TirePanel extends JPanel {
 		add(tireLabel);
 		JRadioButton lowProfileRadio = new JRadioButton("low profile");
 		lowProfileRadio.setActionCommand("low profile");
+		lowProfileRadio.setSelected(true);
 		lowProfileRadio.setBounds(6, 75, 99, 23);
 		group.add(lowProfileRadio);
 		

@@ -13,13 +13,13 @@ public class RacePanel extends JPanel {
 		setLayout(null);
 		
 		JLabel playerLine = new JLabel("");
-		playerLine.setIcon(new ImageIcon(RacePanel.class.getResource("/img/line1.png")));
-		playerLine.setBounds(-71, 76, 1099, 16);
+		playerLine.setIcon(new ImageIcon(RacePanel.class.getResource("/img/line2.png")));
+		playerLine.setBounds(6, 81, 713, 36);
 		add(playerLine);
 		
 		JLabel cpuLine = new JLabel("");
-		cpuLine.setIcon(new ImageIcon(RacePanel.class.getResource("/img/line1.png")));
-		cpuLine.setBounds(-90, 252, 1099, 16);
+		cpuLine.setIcon(new ImageIcon(RacePanel.class.getResource("/img/line2.png")));
+		cpuLine.setBounds(6, 213, 1599, 36);
 		add(cpuLine);
 
 	}

@@ -28,6 +28,8 @@ public class EnginePanel extends JPanel {
 		JRadioButton vEngineRadio = new JRadioButton("V engine");
 		vEngineRadio.setBounds(17, 81, 86, 23);
 		vEngineRadio.setActionCommand("vengine");
+		vEngineRadio.setSelected(true);
+		
 		JRadioButton inlineRadio = new JRadioButton("inline");
 		inlineRadio.setBounds(26, 139, 67, 23);
 		inlineRadio.setActionCommand("inline");

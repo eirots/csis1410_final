@@ -21,6 +21,7 @@ public class LengthSelection extends JPanel {
 		JRadioButton shortRadio = new JRadioButton("short");
 		shortRadio.setBounds(27, 82, 65, 23);
 		shortRadio.setActionCommand("short");
+		shortRadio.setSelected(true);
 		JRadioButton mediumRadio = new JRadioButton("long");
 		mediumRadio.setBounds(27, 141, 83, 23);
 		mediumRadio.setActionCommand("long");
@@ -51,7 +52,6 @@ public class LengthSelection extends JPanel {
 		
 	}
 	public String getSelectedRadio() {
-		System.out.println("length: "+ group.getSelection().getActionCommand());
 		return group.getSelection().getActionCommand();
 	}
 

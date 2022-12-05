@@ -5,8 +5,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import car.Car;
-import car.TireType;
+
 import gui.MainFrame;
 import track.Track;
 
@@ -24,7 +23,6 @@ public class TrackSelector extends JPanel {
 	 */
 	public TrackSelector(JPanel mainPanel) {
 		this.mainPanel = mainPanel;
-
 		makeTrackSelector();
 
 	}
@@ -51,6 +49,7 @@ public class TrackSelector extends JPanel {
 		trackSelectorBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Track genTrack = null;
+				MainFrame main = new MainFrame();
 				if (trackLengthSwitch(lengthSelectPanel.getSelectedRadio()) > 0) {
 					// tracks take length and track type
 					try {
@@ -73,8 +72,10 @@ public class TrackSelector extends JPanel {
 				} else {
 					throw new NullPointerException("SOMEHOW YOU MANAGED TO MAKE A NULL TRACK");
 				}
+				main.switchPanel(mainPanel, "raceDisplay");
 
 			}
+			
 		});
 		trackSelectorBtn.setBounds(326, 340, 117, 29);
 		add(trackSelectorBtn);

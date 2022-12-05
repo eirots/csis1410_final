@@ -22,6 +22,7 @@ public class TrackTypeSelector extends JPanel {
 		JRadioButton onRoadRadio = new JRadioButton("on-road");
 		onRoadRadio.setBounds(6, 81, 84, 23);
 		onRoadRadio.setActionCommand("onroad");
+		onRoadRadio.setSelected(true);
 		JRadioButton offroadRadio = new JRadioButton("offroad");
 		offroadRadio.setBounds(9, 139, 78, 23);
 		offroadRadio.setActionCommand("offroad");

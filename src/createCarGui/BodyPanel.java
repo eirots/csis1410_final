@@ -24,7 +24,9 @@ public class BodyPanel extends JPanel {
 		offroadBodyRadio.setBounds(6, 139, 78, 23);
 		offroadBodyRadio.setActionCommand("offroad");
 		
+		
 		JRadioButton sportRadio = new JRadioButton("sport");
+		sportRadio.setSelected(true);
 		sportRadio.setBounds(12, 81, 65, 23);
 		sportRadio.setActionCommand("sport");
 
