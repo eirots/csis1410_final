@@ -1,4 +1,4 @@
-package finalProject_1410;
+package car;
 
 /**
  * The main class for a car to be created and for other classes to have functionality
@@ -88,6 +88,11 @@ public class Car {
 	 */
 	public Tires getTires() {
 		return new Tires(tires.getTiresType());
-	}	
+	}
+	
+	@Override
+	public String toString() {
+		return this.getBody().getFrame() + " " + this.getEngine().getEngineBlock() + " " + this.getTires().getTiresType();
+	}
 
 }
