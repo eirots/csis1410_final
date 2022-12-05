@@ -1,12 +1,19 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import car.Body;
 import car.Car;
+import car.Engine;
+import car.EngineBlock;
+import car.Frame;
+import car.TireType;
+import car.Tires;
 import createCarGui.BuildCarFrame;
 import introScreenGui.IntroPanel;
 import trackSelectionGui.TrackSelector;
@@ -19,6 +26,7 @@ public class MainFrame extends JFrame {
 	public JPanel mainPanel;
 	public JPanel cards;
 	public static Car playerCar;
+	public static Car cpuCar;
 
 
 	
@@ -48,7 +56,7 @@ public class MainFrame extends JFrame {
 		setBounds(100, 100, 800, 500);
 		mainPanel = new JPanel();
 		mainPanel.setLayout(new CardLayout());
-		
+		//TURN OFF RESIZING
 		
 		//add new panels here 
 		mainPanel.add(new IntroPanel(mainPanel), "intro");
@@ -77,6 +85,17 @@ public class MainFrame extends JFrame {
 		
 		
 	}
+	public void makeCpuCar() {
+		cpuCar = new Car(new Body(randomEnum(Frame.class)), new Engine(randomEnum(EngineBlock.class)),
+				new Tires(randomEnum(TireType.class)));
+	}
+
+	public static <T extends Enum<?>> T randomEnum(Class<T> clazz) {
+		Random random = new Random();
+		int x = random.nextInt(clazz.getEnumConstants().length);
+		return clazz.getEnumConstants()[x];
+	}
+	
 
 }
 

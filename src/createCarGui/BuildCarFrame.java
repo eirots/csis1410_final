@@ -69,7 +69,8 @@ public class BuildCarFrame extends JPanel {
 				MainFrame main = new MainFrame();
 
 				// body, engine, tires
-				Car playerCar = new Car(new Body(switchFrame(bodyPanel.getSelectedRadio())),
+				Car playerCar = new Car(
+						new Body(switchFrame(bodyPanel.getSelectedRadio())),
 						new Engine(switchEngine(enginePanel.getSelectedRadio())),
 						new Tires(switchTire(tirePanel.getSelectedRadio())));
 				MainFrame.setPlayerCar(playerCar);
