@@ -19,7 +19,6 @@ public class MainFrame extends JFrame {
 	public JPanel mainPanel;
 	public JPanel cards;
 	public static Car playerCar;
-	public static 
 
 
 	
