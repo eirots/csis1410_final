@@ -1,4 +1,4 @@
-package notGuiStuff;
+package test;
 
 import car.Body;
 import car.Car;

@@ -1,4 +1,4 @@
-package notGuiStuff;
+package track;
 
 public class CarPosition {
 	private int x;
