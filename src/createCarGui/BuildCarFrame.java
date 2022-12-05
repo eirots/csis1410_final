@@ -5,6 +5,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+import car.EngineBlock;
+import car.Frame;
+import car.TireType;
 import gui.MainFrame;
 
 import javax.swing.JButton;
@@ -64,11 +67,35 @@ public class BuildCarFrame extends JPanel {
 		createCarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame main = new MainFrame();
-
+				
+				Car playerCar = new Car(
+						);
+				bodyPanel.getSelectedRadio();
+				enginePanel.getSelectedRadio();
+				tirePanel.getSelectedRadio();
 				main.switchPanel(mainPanel, "trackSelector");
 			}
 		});
 		add(createCarButton);
+	}
+
+	private Frame switchFrame(String frame) {
+		switch(frame) {
+		case "sport":
+			return Frame.SPORTSCAR;
+		case "offroad":
+			return Frame.OFFROAD;
+		
+		}
+		
+	}
+
+	private EngineBlock switchEngine(String engine) {
+
+	}
+
+	private TireType switchTire(String tire) {
+
 	}
 
 }

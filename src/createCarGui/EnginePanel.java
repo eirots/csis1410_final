@@ -4,6 +4,9 @@ import javax.swing.JPanel;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import car.EngineBlock;
+
 import java.awt.GridBagLayout;
 
 import javax.swing.ButtonGroup;
@@ -16,6 +19,7 @@ import java.awt.Font;
 
 public class EnginePanel extends JPanel {
 
+	private ButtonGroup group;
 	/**
 	 * Create the panel.
 	 */
@@ -23,12 +27,15 @@ public class EnginePanel extends JPanel {
 		
 		JRadioButton vEngineRadio = new JRadioButton("V engine");
 		vEngineRadio.setBounds(17, 81, 86, 23);
+		vEngineRadio.setActionCommand("vengine");
 		JRadioButton inlineRadio = new JRadioButton("inline");
 		inlineRadio.setBounds(26, 139, 67, 23);
+		inlineRadio.setActionCommand("inline");
 		JRadioButton boxerRadio = new JRadioButton("opposed");
 		boxerRadio.setBounds(17, 197, 86, 23);
+		boxerRadio.setActionCommand("opposed");
 		
-		ButtonGroup group = new ButtonGroup();
+		group = new ButtonGroup();
 		
 		group.add(vEngineRadio);
 		group.add(inlineRadio);
@@ -51,6 +58,10 @@ public class EnginePanel extends JPanel {
 		add(inlineRadio);
 		add(boxerRadio);
 
+	}
+	public String getSelectedRadio() {
+		
+		return group.getSelection().getActionCommand();
 	}
 
 }

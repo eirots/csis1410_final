@@ -22,9 +22,11 @@ public class BodyPanel extends JPanel {
 
 		JRadioButton offroadBodyRadio = new JRadioButton("offroad");
 		offroadBodyRadio.setBounds(6, 139, 78, 23);
+		offroadBodyRadio.setActionCommand("offroad");
 		
 		JRadioButton sportRadio = new JRadioButton("sport");
 		sportRadio.setBounds(12, 81, 65, 23);
+		sportRadio.setActionCommand("sport");
 
 		group = new ButtonGroup();
 		
@@ -50,9 +52,9 @@ public class BodyPanel extends JPanel {
 
 	}
 	
-	public String getSelectedButton() {
-		System.out.println(group.getSelection());
-		return "";
+	public String getSelectedRadio() {
+		System.out.println(group.getSelection().getActionCommand());
+		return group.getSelection().getActionCommand();
 	}
 
 

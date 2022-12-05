@@ -13,12 +13,13 @@ import javax.swing.JRadioButton;
 
 public class TirePanel extends JPanel {
 
+	private ButtonGroup group;
 	/**
 	 * Create the panel.
 	 */
 	public TirePanel() {
 		
-		ButtonGroup group = new ButtonGroup();
+		group = new ButtonGroup();
 		setLayout(null);
 		
 		JLabel tireLabel = new JLabel("TIRES");
@@ -27,6 +28,7 @@ public class TirePanel extends JPanel {
 		tireLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(tireLabel);
 		JRadioButton lowProfileRadio = new JRadioButton("low profile");
+		lowProfileRadio.setActionCommand("low profile");
 		lowProfileRadio.setBounds(6, 75, 99, 23);
 		group.add(lowProfileRadio);
 		
@@ -37,6 +39,7 @@ public class TirePanel extends JPanel {
 		add(lowProfileRadio);
 		JRadioButton allTerrainRadio = new JRadioButton("all terrain");
 		allTerrainRadio.setBounds(9, 133, 92, 23);
+		allTerrainRadio.setActionCommand("allterrain");
 		group.add(allTerrainRadio);
 		
 		
@@ -44,10 +47,15 @@ public class TirePanel extends JPanel {
 		add(allTerrainRadio);
 		JRadioButton offroadTiresRadio = new JRadioButton("off road");
 		offroadTiresRadio.setBounds(14, 191, 82, 23);
+		offroadTiresRadio.setActionCommand("offroad");
 		offroadTiresRadio.setHorizontalAlignment(SwingConstants.RIGHT);
 		group.add(offroadTiresRadio);
 		add(offroadTiresRadio);
 
+	}
+		public String getSelectedRadio() {
+		System.out.println(group.getSelection().getActionCommand());
+		return group.getSelection().getActionCommand();
 	}
 
 }
