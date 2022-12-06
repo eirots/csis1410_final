@@ -1,5 +1,11 @@
 package car;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 /**
  * The main class for a car to be created and for other classes to have functionality
  * @author Spencer
@@ -90,9 +96,52 @@ public class Car {
 		return new Tires(tires.getTiresType());
 	}
 	
+
+	/**
+	 * Appends a passed car to a file in the following format
+	 * {Frame},{EngineBlock},{TireType}
+	 * @param carToSave the Car object you wish to save
+	 * @param file to save the Car Object line to
+	 */
+	public static void saveCar(Car carToSave, File file) {
+		try(PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))){
+			String formattedString = String.format("%s,%s,%s",carToSave.getBody().getFrame(),carToSave.getEngine().getEngineBlock(),carToSave.getTires().getTiresType());
+			writer.println(formattedString);
+		}catch(FileNotFoundException e) {
+			System.err.println(e + "was not found");
+		}catch(Exception e) {
+			
+			System.err.println("An Error Occured " + e.getStackTrace());
+		}
+	}
+	/**
+	 * Loads a car from a txt file. Cars should have following format when being saved
+	 * {Frame},{EngineBlock},{TireType}
+	 * note this creates a new Car Object
+	 * @param file to read from
+	 * @param lineNumber starts on line 1. Will skip to the specified line, IE the car you want is on line 2 you pass 2 as the second parameter and it will skip to and read from that line
+	 * @return
+	 */
+	public static Car loadCar(File file, int lineNumber) {
+		try(Scanner reader = new Scanner(file)) {
+			  for(int i = 1; i < lineNumber;i++){
+		           if(reader.hasNextLine())reader.nextLine();
+		      }
+			  String line = reader.nextLine();
+			  String[] splitLine = line.split(",");
+			  return new Car(new Body(Frame.valueOf(splitLine[0])), new Engine(EngineBlock.valueOf(splitLine[1])),new Tires(TireType.valueOf(splitLine[2])));
+			  
+		}catch(Exception e){
+			System.err.println("An Error Occured " + e.getStackTrace());
+		}
+		return null;
+	}
+
 	@Override
 	public String toString() {
-		return this.getBody().getFrame() + " " + this.getEngine().getEngineBlock() + " " + this.getTires().getTiresType();
+		return "Car [currentSpeed=" + currentSpeed + ", frame=" + body.getFrame() + ", engine=" + engine.getEngineBlock() + ", tires=" + tires.getTiresType() + "]";
 	}
+	
+
 
 }
