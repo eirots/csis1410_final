@@ -16,18 +16,24 @@ import gui.MainFrame;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JComboBox;
 
 public class BuildCarFrame extends JPanel {
 	private JPanel mainPanel;
 	private BodyPanel bodyPanel;
 	private TirePanel tirePanel;
 	private EnginePanel enginePanel;
+	private boolean isLoaded;
+	private JComboBox<Integer> comboBox;
 
 	/**
 	 * Create the panel.
 	 */
 	public BuildCarFrame(JPanel mainPanel) {
+		isLoaded = false;
 		this.mainPanel = mainPanel;
 		buildCarFrame();
 
@@ -42,7 +48,23 @@ public class BuildCarFrame extends JPanel {
 		carScreenLabel.setFont(new Font("Monaco", Font.PLAIN, 40));
 
 		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Car playerCar = new Car(
+						new Body(switchFrame(bodyPanel.getSelectedRadio())),
+						new Engine(switchEngine(enginePanel.getSelectedRadio())),
+						new Tires(switchTire(tirePanel.getSelectedRadio())));
+				Car.saveCar(playerCar, new File("src/finalProject_1410/SavedCars.txt"));
+			}
+		});
 		JButton loadButton = new JButton("load");
+		loadButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainFrame.playerCar = Car.loadCar(new File("src/finalProject_1410/SavedCars.txt"), (int) comboBox.getSelectedItem());
+				System.out.println(MainFrame.playerCar);
+				isLoaded = true;
+			}
+		});
 		JButton createCarButton = new JButton("continue");
 
 		enginePanel = new EnginePanel();
@@ -69,16 +91,25 @@ public class BuildCarFrame extends JPanel {
 				MainFrame main = new MainFrame();
 
 				// body, engine, tires
-				Car playerCar = new Car(
-						new Body(switchFrame(bodyPanel.getSelectedRadio())),
-						new Engine(switchEngine(enginePanel.getSelectedRadio())),
-						new Tires(switchTire(tirePanel.getSelectedRadio())));
-				MainFrame.setPlayerCar(playerCar);
+				if(!isLoaded) {
+					Car playerCar = new Car(
+							new Body(switchFrame(bodyPanel.getSelectedRadio())),
+							new Engine(switchEngine(enginePanel.getSelectedRadio())),
+							new Tires(switchTire(tirePanel.getSelectedRadio())));
+					MainFrame.setPlayerCar(playerCar);
+				}
 				MainFrame.printPlayerCar();
 				main.switchPanel(mainPanel, "trackSelector");
 			}
 		});
 		add(createCarButton);
+		
+		comboBox = new JComboBox<>();
+		for(int i = 1; i<8; i++) {
+			comboBox.addItem(i);
+		}
+		comboBox.setBounds(536, 237, 252, 27);
+		add(comboBox);
 	}
 
 	private Frame switchFrame(String frame) {
@@ -118,5 +149,4 @@ public class BuildCarFrame extends JPanel {
 			throw new NullPointerException("NO TIRE TYPE WAS SELECTED");
 		}
 	}
-
 }
