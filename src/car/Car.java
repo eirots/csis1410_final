@@ -43,7 +43,7 @@ public class Car {
 	 * @throws Exception. Checks to see if an invalid track type was passed to the equation.
 	 */
 	public double calculateCurrentSpeed(double oldCurrentSpeed, String trackType) throws Exception {
-		if(trackType == "Road") {
+		if(trackType == "OnRoad") {
 			currentSpeed =(((engine.getAcceleration() * tires.getRoadSpeed()) + currentSpeed) * body.getDrag())/ body.getWeight();
 		}
 		

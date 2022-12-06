@@ -70,10 +70,32 @@ public class RacePanel extends JPanel {
 
 		playerXCoord += step;
 		playerCar.setBounds(playerXCoord, 42, 128, 113);
+		
 
 		add(playerCar);
 		add(playerLine);
 		revalidate();
-		repaint();
+		update(getGraphics());
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public int getPlayerX() {
+		return playerXCoord;
+	}
+	
+	public int getCpuX() {
+		return cpuXCoord;
+	}
+	
+	public String getLeader() {
+		if(playerXCoord < cpuXCoord) {
+			return "CPU";
+		}else {
+			return "PLAYER";
+		}
 	}
 }
