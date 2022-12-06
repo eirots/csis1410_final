@@ -23,6 +23,7 @@ public class RaceDisplay extends JPanel {
 	private JPanel mainPanel;
 	private RacePanel racePanel;
 	private RaceLeaderPanel raceLeaderPanel;
+	private JButton startBtn;
 
 	/**
 	 * Create the panel.
@@ -30,52 +31,54 @@ public class RaceDisplay extends JPanel {
 	public RaceDisplay(JPanel mainpanel) {
 		this.mainPanel = mainPanel;
 		setLayout(null);
-		
-		
+
 		racePanel = new RacePanel();
 		racePanel.setBounds(6, 72, 737, 368);
 		add(racePanel);
-		
+
 		raceLeaderPanel = new RaceLeaderPanel();
-		raceLeaderPanel.setBounds(261, 6, 283, 49);
+		raceLeaderPanel.setBounds(97, 6, 497, 49);
 		add(raceLeaderPanel);
-		JButton startBtn = new JButton("START");
-		
+		startBtn = new JButton("START");
+
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				startBtn.setVisible(false);
 				System.out.println(MainFrame.track.getTrackType());
 				rev();
-				//add getCpuX<714 too
-				while(racePanel.getPlayerX() < 620 ) {
+
+				while (!(racePanel.getPlayerX() > 620) || !(racePanel.getCpuX() > 620)) {
 					race();
 				}
-				
-				
+				if(racePanel.getPlayerX() < racePanel.getCpuX()) {
+					raceLeaderPanel.updateLeaderLabel("WINNER: CPU");
+				}else {
+					raceLeaderPanel.updateLeaderLabel("WINNER: PLAYER");
+				}
+
 			}
 		});
 		startBtn.setBounds(592, 16, 117, 29);
 		add(startBtn);
-		
+
 	}
-	
+
 	private void race() {
 		
-		
-		System.out.println(calcCarSpeed(MainFrame.playerCar));
+		System.out.println("Playerspd "+ calcCarSpeed(MainFrame.playerCar));
 		racePanel.updatePlayerCoord(calcCarSpeed(MainFrame.playerCar));
-		//TODO racePanel.updateCpuCoord((int)Math.floor(MainFrame.cpuCar.getCurrentSpeed()));
-		
-		
+		System.out.println("cpuSpd "+calcCarSpeed( MainFrame.cpuCar));
+		racePanel.updateCpuCoord(calcCarSpeed(MainFrame.cpuCar));
+
 	}
-	
+
 	private int calcCarSpeed(Car car) {
 		int carSpeed;
 		try {
-			carSpeed = (int) Math.floor(10 *MainFrame.playerCar.calculateCurrentSpeed(MainFrame.playerCar.getCurrentSpeed(), MainFrame.track.getTrackType()));
-			if(carSpeed<0) {
+			carSpeed = (int) Math.floor(20 * car.calculateCurrentSpeed(car.getCurrentSpeed(), MainFrame.track.getTrackType()));
+			if (carSpeed < 0) {
 				carSpeed = carSpeed * -1;
 			}
-			
 			return carSpeed;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -83,24 +86,21 @@ public class RaceDisplay extends JPanel {
 		}
 		return 0;
 	}
-	
+
 	private void rev() {
 		try {
-			MainFrame.playerCar.calculateCurrentSpeed(.1, MainFrame.track.getTrackType());
+			MainFrame.playerCar.calculateCurrentSpeed(0, MainFrame.track.getTrackType());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new NullPointerException("YOU BROKE IT");			
+			throw new NullPointerException("YOU BLEW IT");
 		}
-		/*TODO
-		 * cpu car not added yet
 		try {
 			MainFrame.cpuCar.calculateCurrentSpeed(0, MainFrame.track.getTrackType());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new NullPointerException("YOU BROKE IT");			
-		}*/
-	}
+			throw new NullPointerException("YOU BROKE IT");
+		}
 
-	
+	}
 
 }

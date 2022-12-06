@@ -57,11 +57,18 @@ public class RacePanel extends JPanel {
 
 		cpuXCoord += step;
 		cpuCar.setBounds(cpuXCoord, 182, 128, 113);
+		
 
 		add(cpuCar);
 		add(cpuLine);
 		revalidate();
-		repaint();
+		//update(getGraphics());
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void updatePlayerCoord(int step) {

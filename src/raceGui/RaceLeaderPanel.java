@@ -15,16 +15,10 @@ public class RaceLeaderPanel extends JPanel {
 	public RaceLeaderPanel() {
 		setLayout(null);
 		
-		JLabel leaderHeader = new JLabel("LEADER:");
-		leaderHeader.setHorizontalAlignment(SwingConstants.CENTER);
-		leaderHeader.setFont(new Font("Monaco", Font.BOLD, 30));
-		leaderHeader.setBounds(6, 6, 135, 40);
-		add(leaderHeader);
-		
-		leaderLabel = new JLabel("PLAYER");
+		leaderLabel = new JLabel("");
 		leaderLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		leaderLabel.setFont(new Font("Monaco", Font.BOLD, 30));
-		leaderLabel.setBounds(153, 6, 135, 40);
+		leaderLabel.setBounds(6, 6, 282, 40);
 		add(leaderLabel);
 
 	
