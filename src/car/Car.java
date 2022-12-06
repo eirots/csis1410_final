@@ -95,7 +95,6 @@ public class Car {
 	public Tires getTires() {
 		return new Tires(tires.getTiresType());
 	}
-	
 
 	/**
 	 * Appends a passed car to a file in the following format
@@ -110,7 +109,7 @@ public class Car {
 		}catch(FileNotFoundException e) {
 			System.err.println(e + "was not found");
 		}catch(Exception e) {
-			
+
 			System.err.println("An Error Occured " + e.getStackTrace());
 		}
 	}
@@ -130,7 +129,7 @@ public class Car {
 			  String line = reader.nextLine();
 			  String[] splitLine = line.split(",");
 			  return new Car(new Body(Frame.valueOf(splitLine[0])), new Engine(EngineBlock.valueOf(splitLine[1])),new Tires(TireType.valueOf(splitLine[2])));
-			  
+
 		}catch(Exception e){
 			System.err.println("An Error Occured " + e.getStackTrace());
 		}
@@ -141,7 +140,5 @@ public class Car {
 	public String toString() {
 		return "Car [currentSpeed=" + currentSpeed + ", frame=" + body.getFrame() + ", engine=" + engine.getEngineBlock() + ", tires=" + tires.getTiresType() + "]";
 	}
-	
-
 
 }
