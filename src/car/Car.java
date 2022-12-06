@@ -1,4 +1,4 @@
-package finalProject_1410;
+package car;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,7 +49,7 @@ public class Car {
 	 * @throws Exception. Checks to see if an invalid track type was passed to the equation.
 	 */
 	public double calculateCurrentSpeed(double oldCurrentSpeed, String trackType) throws Exception {
-		if(trackType == "Road") {
+		if(trackType == "OnRoad") {
 			currentSpeed =(((engine.getAcceleration() * tires.getRoadSpeed()) + currentSpeed) * body.getDrag())/ body.getWeight();
 		}
 		
@@ -96,6 +96,7 @@ public class Car {
 		return new Tires(tires.getTiresType());
 	}
 	
+
 	/**
 	 * Appends a passed car to a file in the following format
 	 * {Frame},{EngineBlock},{TireType}
@@ -141,5 +142,6 @@ public class Car {
 		return "Car [currentSpeed=" + currentSpeed + ", frame=" + body.getFrame() + ", engine=" + engine.getEngineBlock() + ", tires=" + tires.getTiresType() + "]";
 	}
 	
+
 
 }
